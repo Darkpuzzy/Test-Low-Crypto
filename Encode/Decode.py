@@ -1,6 +1,4 @@
-import Key
-import Crypto
-
+from Encode import Key,Crypto
 
 log_us = hash(input('Your login '))
 key_decode = hash(input('Decode key '))

@@ -8,9 +8,10 @@ class Encryptor:
 
         for symb in text:
             encrypted_text += chr(ord(symb) + key)
-        return hash(encrypted_text)
+        return encrypted_text
 
 
 he = Key.go_key(personal_key=3)
 enc1 = Encryptor()
-print((enc1.encryptor(text,he)))
+print(enc1.encryptor(text,he))
+

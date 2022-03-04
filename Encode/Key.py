@@ -11,8 +11,6 @@ import sympy as sp
 
 
 class Arguments:
-
-
     def __init__(self,key):
         self.key = key
 
@@ -27,7 +25,6 @@ class Arguments:
 
 class Encoding_func:
 
-
     def __init__(self,a1,a2,a3):
         self.a1 = a1
         self.a2 = a2
@@ -39,16 +36,25 @@ class Encoding_func:
         x1 = list_arg[0]
         x2 = list_arg[1]
         x3 = list_arg[2]
+        f_x = self.a1*x1 + self.a2*(x2**2) + self.a2*(x3**3)
+        x = sp.Symbol('x')
+        f = self.a1*x+self.a2*(x**2)+self.a3*(x**3)
+        diff_f = f.diff(x)
+        f1 = sp.lambdify(x,diff_f)
+        return f1(3)
 
+if __name__ == '__main__':
 
-arg = Arguments(key=3)
-a = arg.listed()
-print(a)
-enc = Encoding_func()
-print(enc.encode(list_cheak=a))
+    arg = Arguments(key=3)
+    a = arg.listed()
+    print(a)
+    enc = Encoding_func(
+        a1=48,
+        a2=3,
+        a3=4
+    )
+    print(enc.encode(list_cheak=a))
 
-
-x = sp.Symbol('x')
 
 # name_1 = 'John'
 # name_2 = 'Jayson'

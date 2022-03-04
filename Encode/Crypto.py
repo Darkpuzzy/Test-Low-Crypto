@@ -1,21 +1,16 @@
 # Шифр Цезаря
 import Key
 
-
+text = input('Your text ')
 class Encryptor:
     def encryptor(self,text,key):
         encrypted_text = ""
 
         for symb in text:
             encrypted_text += chr(ord(symb) + key)
-        return encrypted_text
+        return hash(encrypted_text)
 
 
-arg = Key.Arguments(key=3)
-enc = Key.Encoding_func(
-    a1=48,
-    a2=3,
-    a3=4
-)
+he = Key.go_key(personal_key=3)
 enc1 = Encryptor()
-print((enc1.encryptor('hello',enc.encode(list_cheak=arg.listed()))))
+print((enc1.encryptor(text,he)))

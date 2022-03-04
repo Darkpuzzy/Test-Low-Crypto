@@ -4,10 +4,8 @@ from matplotlib import pyplot as ppl
 import random as rd
 import sympy as sp
 
-# Your personal key 3 and your secret key 48
-# Personal func f`(x) = 48 + 6x + 12x^2  f`(x1) = 48+6+12 - 66 is secret key
-
-
+# Your personal key 3
+# Personal func f`(x) = 48 + 6x + 12x^2
 
 
 class Arguments:
@@ -43,9 +41,8 @@ class Encoding_func:
         f1 = sp.lambdify(x,diff_f)
         return f1(3)
 
-if __name__ == '__main__':
-
-    arg = Arguments(key=3)
+def go_key(personal_key):
+    arg = Arguments(key=personal_key)
     a = arg.listed()
     print(a)
     enc = Encoding_func(
@@ -53,7 +50,7 @@ if __name__ == '__main__':
         a2=3,
         a3=4
     )
-    print(enc.encode(list_cheak=a))
+    return enc.encode(list_cheak=a)
 
 
 # name_1 = 'John'

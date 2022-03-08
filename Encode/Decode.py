@@ -1,4 +1,4 @@
-from Encode import Key, Crypto
+import Key, Crypto
 import sympy as spy
 
 

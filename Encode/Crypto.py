@@ -2,8 +2,11 @@
 import Key
 
 text = input('Your text ')
+
+
 class Encryptor:
-    def encryptor(self,text,key):
+
+    def encryptor(self, text, key):
         encrypted_text = ""
 
         for symb in text:
@@ -13,5 +16,4 @@ class Encryptor:
 
 he = Key.go_key(personal_key=3)
 enc1 = Encryptor()
-print(enc1.encryptor(text,he))
-
+crypto_text = enc1.encryptor(text,he)

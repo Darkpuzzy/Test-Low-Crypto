@@ -9,48 +9,39 @@ import sympy as sp
 
 
 class Arguments:
-    def __init__(self,key):
+    def __init__(self, key):
         self.key = key
-
 
     def listed(self):
         list_cheak = []
         while len(list_cheak) < self.key:
-            a = rd.randrange(1,200)
+            a = rd.randrange(1, 200)
             list_cheak.append(a)
         return list_cheak
 
 
-class Encoding_func:
-
-    def __init__(self,a1,a2,a3):
+class EncodingFunc:
+    def __init__(self, a1, a2, a3):
         self.a1 = a1
         self.a2 = a2
         self.a3 = a3
 
-
-    def encode(self,list_cheak):
-        list_arg = list_cheak
-        x1 = list_arg[0]
-        x2 = list_arg[1]
-        x3 = list_arg[2]
-        f_x = self.a1*x1 + self.a2*(x2**2) + self.a2*(x3**3)
+    def encode(self):
         x = sp.Symbol('x')
         f = self.a1*x+self.a2*(x**2)+self.a3*(x**3)
         diff_f = f.diff(x)
-        f1 = sp.lambdify(x,diff_f)
+        f1 = sp.lambdify(x, diff_f)
         return f1(3)
+
 
 def go_key(personal_key):
     arg = Arguments(key=personal_key)
-    a = arg.listed()
-    print(a)
-    enc = Encoding_func(
+    enc = EncodingFunc(
         a1=48,
         a2=3,
         a3=4
     )
-    return enc.encode(list_cheak=a)
+    return enc.encode()
 
 
 # name_1 = 'John'
